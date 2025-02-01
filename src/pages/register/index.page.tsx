@@ -48,6 +48,7 @@ export default function Register() {
         name: data.name,
         username: data.username,
       })
+      await router.push('/register/connect-calendar')
     } catch (error) {
       console.error(error)
       if (error instanceof AxiosError && error.response?.data?.message) {
@@ -94,7 +95,7 @@ export default function Register() {
             <FormError size="sm">{errors.name.message}</FormError>
           )}
         </label>
-        <Button type="submit">
+        <Button type="submit" disabled={isSubmitting}>
           Próximo passo <ArrowRight />
         </Button>
       </Form>
